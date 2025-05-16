@@ -1,0 +1,27 @@
+--------> Diagramm : https://imgur.com/a/yiyXhgu
+____________________________________________________________
+1. DNS Resolution
+The user requests access to a domain (www.foo.bar).
+The request is first handled by a local DNS server, then forwarded to an external DNS server (e.g., 8.8.8.8 – Google DNS) for resolution.
+
+2. Secure Access
+After DNS resolution, the connection passes through an SSL certificate to establish a secure HTTPS session.
+Then the request travels through the Internet to the internal infrastructure.
+
+3. Load Balancing
+The request reaches a Load Balancer, powered by HAProxy, which distributes incoming traffic across multiple backend servers to balance the load and ensure high availability.
+
+4. Server-Side Processing
+There are three backend servers (Server 1, Server 2, Server 3), and each one contains:
+
+Web/Nginx: Handles web traffic (HTTP/S).
+
+App: The application layer where business logic is executed.
+
+MySQL: The database engine for data storage.
+
+Each server is protected by a firewall, which restricts unauthorized access and secures the internal environment.
+
+5. Monitoring
+Each server is connected to monitoring clients, which are responsible for tracking the health, performance, and availability of the components.
+
