@@ -1,0 +1,28 @@
+Server:
+  - Web server: Nginx
+  - Application server: Handles business logic
+  - Application files: Your app code
+  - Database: MySQL
+
+Domain:
+  - foobar.com is the main domain
+  - www.foobar.com is a subdomain with a DNS A record pointing to 8.8.8.8
+
+Data flow:
+  User -> HTTP request -> Nginx -> Application server -> Database -> Response
+
+Definitions:
+- A server is a computer that provides data/services to clients over a network.
+- The domain name maps human-readable names (foobar.com) to an IP address.
+- A DNS 'A' record maps the subdomain 'www' to the IP address of the server.
+- The web server (Nginx) receives HTTP requests and forwards them to the app server.
+- The application server processes requests, runs the app logic.
+- The database stores and retrieves persistent data for the application.
+- The server communicates with the user's browser via HTTP over TCP/IP.
+
+Issues:
+- SPOF (Single Point of Failure): one server for all roles.
+- Downtime during maintenance (e.g., restarting Nginx or updating code).
+- Cannot handle high traffic – no scalability (no load balancing or replication).
+
+https://imgur.com/a/OiU2AfX

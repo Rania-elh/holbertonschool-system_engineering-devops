@@ -1,0 +1,35 @@
+-----> Diagram : https://imgur.com/a/OaKdYtj
+____________________________________________
+Server Architecture with Load Balancing
+Server
+Main entry point for user requests.
+It can be a DNS or a redirection point to the Load Balancers.
+
+Load Balancer (HAProxy)
+Two HAProxy load balancers are configured in an active/passive or active/active cluster (depending on the setup).
+Their role is to distribute incoming traffic to downstream servers.
+
+Web Server & Application Server
+The Load Balancers route requests to:
+
+A Web Server (for static content or simple HTTP request handling),
+
+An Application Server (handles business logic and dynamic processing).
+Each component runs on its own dedicated server.
+
+Database
+The database is accessed by both the web server and the application server.
+It is also hosted on a separate server to ensure isolation and performance.
+
+Let me know if you'd like a version adapted for documentation or presentation slides.
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+This diagram illustrates a high availability architecture for a web application, using a load balancer and a master-slave database replication setup across two servers.
+
+Here's a step-by-step explanation:
+
+1. Load Balancer (HAProxy) :
+
+At the top, there's a load balancer, specifically HAProxy.
+Its job is to distribute incoming network traffic between multiple servers to balance the load, improve availability, and prevent overload
+
+2. Two Servers :
+
+Below the load balancer, there are two servers.
+Each server includes:
+Web server (Nginx): handles HTTP requests.
+Application: the core business logic or backend of your web service.
+Database: stores your application data.
+
+3. Master and Slave :
+
+The left server is labeled as the Master server. It holds the primary database where most write operations (insert, update, delete) are performed
+The right server is the Slave server, containing a replica of the master database. It's generally used for read operations to reduce the load on the master.
+
+4. How It Works :
+
+Users access the application through the load balancer.
+HAProxy distributes traffic between the two servers (e.g., round-robin or based on current load).
+If the master server fails, the slave can be promoted to take over (either manually or through failover mechanisms).
+
+5. Advantages :
+
+High availability: If one server goes down, the other keeps running.
+Scalability: Load is shared between servers.
+Separation of duties: Reads can go to the slave; writes go to the master. 
+
+https://imgur.com/a/P2hQQep
